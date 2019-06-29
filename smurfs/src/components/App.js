@@ -24,6 +24,15 @@ class App extends Component {
     return (
       <div className="App">
         <h1>SMURFS</h1>
+
+        <h2>Add Smurfs</h2>
+        <form>
+          <input type="text" placeholder="name" />
+          <input type="text" placeholder="age" />
+          <input type="text" placeholder="height" />
+          <button>ADD</button>
+        </form>
+
         {this.props.smurfs.map(smurf => {
           return (
             <div key={smurf.id}>
