@@ -27,3 +27,11 @@ export const getSmurfs = () => dispatch => {
     .then(res => dispatch({ type: GET_SMURFS, payload: res.data }))
     .catch(err => dispatch({ type: FAILURE, payload: err }));
 };
+
+export const addSmurfs = newSmurf => dispatch => {
+  dispatch({ type: CREATING });
+  axios
+    .post('http://localhost:3333/smurfs', newSmurf)
+    .then(res => dispatch({ type: ADD_SMURF, payload: res.data }))
+    .catch(err => dispatch({ type: FAILURE, payload: err }));
+};
