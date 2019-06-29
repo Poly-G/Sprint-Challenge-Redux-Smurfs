@@ -19,3 +19,11 @@ export const FAILURE = 'FAILURE';
    U - updateSmurf
    D - deleteSmurf
 */
+
+export const getSmurfs = () => dispatch => {
+  dispatch({ type: FFETCHING });
+  axios
+    .get('http://localhost:3333/smurfs')
+    .then(res => dispatch({ type: GET_SMURFS, payload: res.data }))
+    .catch(err => dispatch({ type: FAILURE, payload: err }));
+};
