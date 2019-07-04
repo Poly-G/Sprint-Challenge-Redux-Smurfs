@@ -3,7 +3,7 @@
   Be sure to export each action type so you can pull it into your reducer
 */
 import axios from 'axios';
-export const ADD_SMURF = 'ADD_SMURF';
+export const ADD_SMURFS = 'ADD_SMURFS';
 export const GET_SMURFS = 'GET_SMURFS';
 export const FETCHING = 'FETCHING';
 export const CREATING = 'CREATING';
@@ -32,6 +32,6 @@ export const addSmurfs = newSmurf => dispatch => {
   dispatch({ type: CREATING });
   axios
     .post('http://localhost:3333/smurfs', newSmurf)
-    .then(res => dispatch({ type: ADD_SMURF, payload: res.data }))
+    .then(res => dispatch({ type: ADD_SMURFS, payload: res.data }))
     .catch(err => dispatch({ type: FAILURE, payload: err }));
 };
